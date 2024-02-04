@@ -1,4 +1,5 @@
 #include "jjallocator.hpp"
+#include "person.hpp"
 
 #include <vector>
 #include <iostream>
@@ -16,5 +17,12 @@ int main()
     }
     std::cout << std::endl;
 
+    jj::allocator<Person> alloc_p;
+    Person* person_ptr = alloc_p.allocate(1);
 
+    alloc_p.construct(person_ptr, Person("Jhon Doe", 30));
+
+    person_ptr->introduce();
+
+    alloc_p.deallocate(person_ptr, 1);
 }

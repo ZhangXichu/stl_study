@@ -43,10 +43,10 @@ inline void _deallocate(T* buffer)
 template<class T1, class T2>
 inline void _construct(T1* p, const T2& value)
 {
-    new(p) T1(value);  // placement new. invoke ctor of T1
+    new(p) T1(value);  // placement new. invoke constructor of T1
 }
 
-template <class T>\
+template <class T>
 inline void _destory(T* ptr)
 {
     ptr->~T();
